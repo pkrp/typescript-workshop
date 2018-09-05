@@ -11,7 +11,7 @@
     "start:unions": "ts-node ./src/04-unions/index.ts",
     "start:generics": "ts-node ./src/05-generics/index.ts",
     "start:enums": "ts-node ./src/06-enums/index.ts",
-    "start:namespaces": "ts-node ./src/07-namespaces/index.ts",
+    "start:namespaces": "ts-node ./src/07-namespaces/output.js",
     "start:decorators": "ts-node ./src/08-decorators/index.ts",
     "start:typings": "ts-node ./src/09-typings/index.ts",
     "start:compiler": "ts-node ./src/10-compiler/index.ts",
