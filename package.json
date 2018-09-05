@@ -1,0 +1,37 @@
+{
+  "name": "typescript-workshop",
+  "version": "1.0.0",
+  "description": "TypeScript basic excercises",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start:types": "ts-node ./src/01-types/index.ts",
+    "start:functions": "ts-node ./src/02-functions/index.ts",
+    "start:classes": "ts-node ./src/03-classes/index.ts",
+    "start:unions": "ts-node ./src/04-unions/index.ts",
+    "start:generics": "ts-node ./src/05-generics/index.ts",
+    "start:enums": "ts-node ./src/06-enums/index.ts",
+    "start:namespaces": "ts-node ./src/07-namespaces/index.ts",
+    "start:decorators": "ts-node ./src/08-decorators/index.ts",
+    "start:typings": "ts-node ./src/09-typings/index.ts",
+    "start:compiler": "ts-node ./src/10-compiler/index.ts",
+    "test:types": "tsc ./src/01-types/index.ts && mocha -r ts-node/register ./src/01-types/index.spec.ts",
+    "test:functions": "tsc ./src/01-functions/index.spec.ts && mocha -r ts-node/register ./src/01-functions/index.spec.ts",
+    "test": "build && mocha -r ts-node/register src/**/*.spec.ts"
+  },
+  "keywords": [
+    "typescript",
+    "workshop"
+  ],
+  "author": "p.karp@smartrecruiters.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "4.1.4",
+    "@types/mocha": "5.2.5",
+    "chai": "4.1.2",
+    "lodash": "4.17.10",
+    "mocha": "5.2.0",
+    "ts-node": "7.0.1",
+    "typescript": "3.0.3"
+  }
+}
