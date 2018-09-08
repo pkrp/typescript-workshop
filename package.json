@@ -16,7 +16,7 @@
     "start:typings": "ts-node ./src/09-typings/index.ts",
     "start:compiler": "ts-node ./src/10-compiler/index.ts",
     "test:types": "tsc ./src/01-types/index.ts && mocha -r ts-node/register ./src/01-types/index.spec.ts",
-    "test:functions": "tsc ./src/01-functions/index.spec.ts && mocha -r ts-node/register ./src/01-functions/index.spec.ts",
+    "test:functions": "tsc ./src/02-functions/index.spec.ts && mocha -r ts-node/register ./src/02-functions/index.spec.ts",
     "test": "build && mocha -r ts-node/register src/**/*.spec.ts"
   },
   "keywords": [

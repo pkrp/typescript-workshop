@@ -1,4 +1,4 @@
-{interface Employee {
+interface Employee {
     work(): void
 }
 
@@ -48,4 +48,4 @@ developer.type = 2              // this is weird, shouldn't occur!
 // let's create Manager class as well (should it implement interface or extend a class?)
 // and implement another work function there
 
-export {Employee, Developer}}
+export {Employee, Developer}

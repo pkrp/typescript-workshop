@@ -25,7 +25,7 @@ getLabel('Scott') // TEST 2
 
 /*** Default parameters ***/
 // here we have the similar case but we would like to have 'Poland' as a default parameter in case of leaving it empty
-function getLocation(city, country) {
+function getLocation(country, city) {
     return country + ', ' + city
 }
 
