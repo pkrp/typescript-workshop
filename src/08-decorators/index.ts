@@ -17,16 +17,17 @@ function secondDecorator() {
 }
 
 class DecoratorExample {
-    @firstDecorator()       //we can write annotations in multiple lines...
+    @firstDecorator()
     @secondDecorator()
-    method() {}
+    method() {
+    }
 
-    @firstDecorator() @secondDecorator() anotherMethod() {}   //...or simply one after another
+    @firstDecorator() @secondDecorator() anotherMethod() {
+    }
 }
 
 const decoratorExample = new DecoratorExample()
-decoratorExample.method()       //run our script and take a look what is the order of evaluation for decorators on 'method'
-
+decoratorExample.method()
 
 
 console.log('\n\n')
@@ -34,66 +35,95 @@ console.log('\n\n')
 console.log('/*** Class Decorators ***/\n\n')
 
 
-function nameDecorator<T extends {new(...args:any[]):{}}>(constructor:T) {
+function nameDecorator<T extends { new(...args: any[]): {} }>(constructor: T) {
     return class extends constructor {
+        name = "Overriden name!";
     }
 }
 
-class ClassDecoratorExample {
-    name: string;
+class SomeClassExample {
+    private _name: string;
+
     constructor(m: string) {
-        this.name = m;
+        this._name = m;
     }
 
-    printName(): void {
-        console.log(this.name)
+    get name(): string {
+        return this._name
+    }
+
+    set name(name: string) {
+        this._name = name
     }
 }
-//firstly use decorator in proper place
 
-const classDecoratorExample: ClassDecoratorExample = new ClassDecoratorExample('John')
-classDecoratorExample.printName()            // override constructor so that this function outputs 'Susan'
+class ClassWithDecoratorExample {
+    private _name: string;
 
+    constructor(name: string) {
+        this._name = name;
+    }
+
+    get name(): string {
+        return this._name
+    }
+
+    set name(name: string) {
+        this._name = name
+    }
+}
 
 
 /*** Method Decorators ***/
 
 function logDecorator() {
     return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+        descriptor.value = () => {
+            return 'logging overridden!';
+        }
     };
 }
 
 class MethodDecoratorExample {
-    constructor() {}
+    constructor() {
+    }
 
-    someFunction() {
-        console.log('initial state of someFunction')
+    getState() {
+        return 'initial state of function'
+    }
+
+    getDecoratedState() {
+        return 'initial state of function'
     }
 }
-//firstly use decorator in proper place
-
-const methodDecoratorExample: MethodDecoratorExample = new MethodDecoratorExample()
-methodDecoratorExample.someFunction() // try to override this function so that it logs something else (use descriptor property)
 
 
 /*** Accessor Decorators ***/
 
-/*
-decorator placeholder
- */
+function getterDecorator() {
+    return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+        descriptor.get = function () {
+            return this._x * 2
+        }
+    };
+}
 
 class AccessorDecoratorExample {
     private _x: number;
-    constructor(x) { this._x = x }
+    private _y: number;
+
+    constructor(x, y) {
+        this._x = x;
+        this._y = y
+    }
 
     get x() {
-        console.log('getting x')
         return this._x;
     }
-}
-//firstly create out decorator and use it in proper place
 
-const accessorDecoratorExample: AccessorDecoratorExample = new AccessorDecoratorExample(2)
-const xValue: number = accessorDecoratorExample.x          // try to modify getter so that it logs something else and returns doubled value
-// psst... use descriptor property
-console.log(xValue)
+    get y() {
+        return this._y;
+    }
+}
+
+export {SomeClassExample, ClassWithDecoratorExample, MethodDecoratorExample, AccessorDecoratorExample}

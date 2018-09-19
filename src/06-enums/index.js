@@ -1,32 +1,29 @@
-// we would like to have some constant containing red, green and blue colors
+/*** Enums ***/
+
+/** constant **/
 const ConstColors = {
-    Red: 1,
-    Green: 2,
-    Blue: 3
+    RED: 0,
+    GREEN: 1,
+    BLUE: 2
 }
 
-// sounds nice! but...
+/** enum **/
+/** should contain RED, GREEN and BLUE colors with values 0, 1, 2 **/
+EnumColors = {
+}
 
-ConstColors.Red = 4
+/** Adding more elements to existing enum **/
+/** should add YELLOW, BROWN and BLACK colors with values 3, 4, 5 **/
 
-// our constant is not quite constant, how can we avoid such situation?
-// 1. let's try enums! is expression above throwing an error now?
+EnumColors = {
+}
 
-EnumColors = {}
+/** const enum **/
+ConstEnumColors = {
+}
 
-// 2. can we add another colors Yellow, Brown and Grey without changing existing enum?
+/** take a look at the output! **/
+console.log(EnumColors.GREEN)
+console.log(ConstEnumColors.GREEN)
 
-EnumColors = {}
-
-// 3. it looks like our enum is a real constant now, so what is the difference between 'enum' and 'const enum'?
-//    let's create const enum which is a copy of our enum colors
-
-ConstEnumColors = {}
-console.log(EnumColors.Red)
-console.log(ConstEnumColors.Red)
-
-// now compile the code and take a look at console logs in generated js files
-// the latter results in simple replacement (constant injection) while the first one is computed during runtime
-
-
-
+export { ConstColors, EnumColors }
