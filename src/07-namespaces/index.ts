@@ -1,5 +1,5 @@
 /*** Namespaces ***/
-
+/*
 namespace SomeNamespace {
     export interface SomeInterface {}       // this one put in first file
     export class SomeClass {}               // this one put in first file
@@ -9,5 +9,5 @@ namespace SomeNamespace {
 
 const someClass: SomeNamespace.SomeClass = new SomeNamespace.SomeClass()
 const totallyDifferentClass: SomeNamespace.TotallyDifferentClass = new SomeNamespace.TotallyDifferentClass()
-
+*/
 /** try to run this program and take a look at generated files! **/
